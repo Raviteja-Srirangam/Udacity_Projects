@@ -34,12 +34,12 @@ M
 
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
   
-[Link to Jupyter Notebook]./
 
-### Step 1. Cameara Calibration
+
+### Step 1. Camera Calibration
 
 I have defined a function to calibrate the camera to make the images free from distortion
-    Function:calibrateCamera
+    Function:calibrateCamera()
         input: a folder of images
         output: distortion matrix
 How I did it?
@@ -219,11 +219,15 @@ def draw_on_image(undist, warped_img, left_fit, right_fit, M, left_curvature, ri
 ### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
 Here's a [link to my video result](./test_videos_output/project_video.mp4)
-
+Here's a [link to my notebook](./Notebook.ipynb)
 ---
 
 ### Discussion
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+The problems which I faced during the project was to get the proper destination points to get the perspective transform of the image. Selecting the proper destination points would make the project detect the lanes even in curvy roads as in [hardchallenge](./test_videos/harder_challenge_video.mp4)
+The pipeline most likely will fail if the curvature is too high and changing rapidly
+The pipeline could be made robust 
+    1)if detection of current lane pixels is checked for confidence
+    2)if the lane pixels are averaged over the ones in previous frames.
